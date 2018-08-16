@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>$toast message test</title>
+
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+
+</head>
+
+<body ng-app="app" ng-cloak>
+  <!--Your HTML content here -->
+  <div ng-controller="MyController" layout="column" layout-align="center center">
+    <h1>Testing md-autocomplete</h1>
+    <md-autocomplete class="hide-label" md-menu-container-class="black" ng-disabled="false" md-no-cache="true" md-items="item in getMatch(searchText)"
+      md-selected-item="selectedItem" md-item-text="item" md-search-text="searchText" placeholder="Testing this input?" md-floating-label="hide this label">
+      <md-item-template>
+        <span>{{ item }}</span>
+      </md-item-template>
+    </md-autocomplete>
+
+
+
+    <p>{{selectedItem}}</p>
+
+    <!-- set up test for ng-if and tr element -->
+    <h1>ng-if Test with tr</h1>
+    <table>
+      <tr>
+        <th>Test</th>
+        <th>Test 2</th>
+      </tr>
+      <tr ng-if='ngIfTest'>
+        <td>2nd test</td>
+        <td>2nd test</td>
+      </tr>
+      <tr ng-if='ngIfTest2'>
+        <td>
+          <span>3rd test</span>
+        </td>
+        <td>3rd test</td>
+      </tr>
+      <tr ng-if='ngIfTest3'>
+        <td>4th test</td>
+        <td>4th test</td>
+      </tr>
+      <tr ng-if='ngIfTest3'>
+        <td>
+          <span>5th test</span>
+        </td>
+        <td>5th test</td>
+      </tr>
+    </table>
+    <div layout="column">
+      <md-button class="md-raised" ng-click="ngIfTest = !ngIfTest">Test 2nd row ng-if</md-button>
+      <md-button class="md-raised" ng-click="ngIfTest2 = !ngIfTest2">Test 3nd row ng-if with span</md-button>
+      <md-button class="md-raised" ng-click="ngIfTest3 = !ngIfTest3">Test 4th and 5th row ng-if with span</md-button>
+    </div>
+
+    <!--Set up test to for collapsing cards  -->
+    <div layout="row" style="width:90vw" layout-align="center center">
+      <md-card flex="100" layout-align="center center">
+        <md-card-title flex="grow">
+          <md-card-title-text flex="100">
+            <span flex="100" class="md-headline" ng-click="isCollapsed = !isCollapsed">This is the title of the collapsable card</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <div uib-collapse="isCollapsed">
+            <!--           <div> -->
+            <p>Bacon ipsum dolor amet pork chop rump cow drumstick andouille alcatra pork loin kielbasa ball tip beef brisket
+              pig filet mignon venison biltong. Spare ribs chuck cow, ham hock filet mignon shankle corned beef. Ham hock
+              drumstick capicola shankle, tongue pastrami picanha bresaola chicken. Sirloin brisket pork loin kielbasa chuck,
+              tri-tip drumstick meatball. Turducken burgdoggen flank strip steak. Doner t-bone kielbasa meatloaf burgdoggen,
+              cupim frankfurter porchetta ground round jowl spare ribs strip steak andouille. Strip steak tail chuck, ribeye
+              prosciutto leberkas shoulder meatball bresaola filet mignon boudin t-bone.</p>
+
+            <p>Alcatra tail sirloin filet mignon, ham frankfurter turkey cow jowl salami swine flank picanha meatball. Shank
+              short loin kevin cupim leberkas, jowl flank brisket buffalo ribeye cow frankfurter fatback. Landjaeger rump
+              pancetta, doner salami prosciutto ground round. Kielbasa sausage shoulder cupim. Shank jowl short ribs pancetta.</p>
+
+            <p>Flank ribeye tri-tip doner ham, bresaola short loin t-bone tail tenderloin pork burgdoggen pancetta cupim. Turkey
+              biltong swine jowl leberkas boudin pork loin buffalo pastrami kielbasa chicken ground round pork belly tenderloin
+              fatback. Burgdoggen jerky corned beef rump chicken. Kielbasa filet mignon salami leberkas. Bacon pork pancetta
+              tenderloin pastrami, picanha alcatra frankfurter bresaola andouille beef tongue pork belly flank chuck.</p>
+
+            <p>Tongue capicola cupim, spare ribs prosciutto ribeye turducken pig jerky boudin hamburger biltong. Shankle filet
+              mignon pancetta picanha turducken buffalo pork loin biltong tongue pastrami rump. Shank tail spare ribs andouille,
+              ribeye turkey short ribs shoulder strip steak short loin burgdoggen rump. Kevin spare ribs pancetta, t-bone
+              pork belly bacon biltong doner tail frankfurter shank. Sausage ham kielbasa rump spare ribs ball tip ham hock
+              kevin. Brisket flank bresaola picanha, burgdoggen t-bone boudin buffalo beef strip steak venison sirloin pork
+              loin jowl.</p>
+
+            <p>Frankfurter ham hock buffalo short ribs porchetta jowl prosciutto. Leberkas venison beef jowl brisket, prosciutto
+              biltong meatball rump salami kevin tri-tip tail ham hock drumstick. Rump porchetta fatback turducken buffalo
+              strip steak ball tip ground round short ribs doner hamburger filet mignon beef turkey pork belly. Shoulder
+              andouille tongue pig salami sausage ham beef ribs buffalo drumstick chuck short ribs.</p>
+
+            <p>Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!</p>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+    <br/>
+
+    <br />
+    <!--this alert doesn't work-->
+    <div uib-alert ng-class="'alert-danger'" type="danger">this is an alert</div>
+    <br />
+    <div>
+      <md-chips ng-show="chipNames.length > 0" ng-model="chipNames" md-enable-chip-edit></md-chips>
+    </div>
+    <br />
+
+    <md-input-container>
+      <label>Name</label>
+      <input ng-model="input.name"></input>
+    </md-input-container>
+
+    <div>
+      <md-button class="md-raised" ng-click="openToast(input.name)">Open a Toast!</md-button>
+    </div>
+
+    <div>
+      <toast></toast>
+    </div>
+
+    <div id="box" style="height:200px; width:500px; background-color: salmon;"></div>
+
+    <div>
+      <md-button class="md-raised" ng-click="showHideToast(input.name)">template string toast with toast controller to close the toast!</md-button>
+    </div>
+
+    <!--put alert from bootstrap below -->
+    <h1>bootstrap alert section</h1>
+    <md-button class="md-raised" ng-click="showAlert = !showAlert">Show the Alert</md-button>
+    <div ng-show="showAlert" class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error: </span>This is an alert from bootstrap
+    </div>
+
+    <!--Track by $index test! -->
+    <br />
+    <h1>ng-repeat section</h1>
+    <div>
+      <ul>
+        <li ng-repeat='item in [1,2,3,3] track by $index'>{{item}}&emsp;$index is: {{ $index }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    // angular.module('app', ['ngMaterial', 'ngMessages']);
+  </script>
+
+
+
+
+
+  <!--
+Copyright 2016-2018 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://material.angularjs.org/latest/license.
+-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

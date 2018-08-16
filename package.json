@@ -1,0 +1,21 @@
+{
+  "name": "angular-test",
+  "version": "1.0.0",
+  "description": "A Pen created at CodePen.io. You can find this one at https://codepen.io/mayerxc/pen/wXaeWp.",
+  "main": "/js/index.js",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.2.0",
+    "karma": "^3.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2"
+  },
+  "dependencies": {
+    "angular": "^1.7.3",
+    "angular-mocks": "^1.7.3"
+  }
+}
